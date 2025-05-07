@@ -11,3 +11,4 @@ tqdm
 shiny
 matplotlib
 seaborn
+flask
