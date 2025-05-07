@@ -12,3 +12,4 @@ shiny
 matplotlib
 seaborn
 flask
+Flask-Cors==5.0.0
