@@ -170,7 +170,8 @@ def predict(input: InputClass):
         if rulestr not in ctrlrulestrs:
             testrulestrs.append(rulestr)
 
-    return testrulestrs
+    return {"testrulestrs": testrulestrs, "ctrlrulestrs": ctrlrulestrs, "testfit": testfit, "ctrlfit": ctrlfit,
+            "testonlyimpacts": testonlyimpacts, "testrls": testrls, "ctrlrls": ctrlrls}
 
 example_input = {
     "meanage": 20,

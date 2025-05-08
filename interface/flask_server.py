@@ -7,10 +7,11 @@ app = Flask(__name__)
 CORS(app)
 
 @app.route("/predict", methods=['POST'])
-def predict():
+def predict_request():
     data = request.get_json()
-    input = InputClass(data.input)
-    return predict(input)
+    input = InputClass(data["input"])
+    prediction = predict(input)
+    return prediction
 
 @app.route("/get_input_params")
 def get_input_params():
@@ -22,12 +23,12 @@ def get_input_params():
         {"id": "patientrole", "label": "Patient role?", "type": "checkbox", "value": 0},
         {"id": "verification", "label": "Biochemical verification", "type": "checkbox", "value": 0},
         {"id": "outcome", "label": "Outcome", "type": "select", "choices":
-            ["Abstinence: Continuous ", "Abstinence: Point Prevalence "]},
+            ["Abstinence: Continuous ", "Abstinence: Point Prevalence "], "value": "Abstinence: Continuous "},
         ],
         "interventions": [
-        {"id": "intervention", "label": "Intervention", "type": "select", "choices": []},
-        {"id": "delivery", "label": "Delivery", "type": "select", "choices": []},
-        {"id": "source", "label": "Source", "type": "select", "choices": []}
+        {"id": "intervention", "label": "Intervention", "type": "select", "choices": [], "value": []},
+        {"id": "delivery", "label": "Delivery", "type": "select", "choices": [], "value": []},
+        {"id": "source", "label": "Source", "type": "select", "choices": [], "value": []}
     ]}
 
 @app.route("/hello_world")
