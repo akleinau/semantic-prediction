@@ -58,13 +58,13 @@ def get_input_params():
     print("We have ", len(featurenames), " features.")
 
     intervention = featuresemantics.query('group == "intervention"')['featurename'].values.tolist()
-    intervention = [x for x in intervention if x in featurenames]
+    intervention = [x for x in intervention if x in featurenames and x != "11.1 Pharmacological support"]
     delivery = featuresemantics.query('group == "deliverymode"')['featurename'].values.tolist()
     delivery = [x for x in delivery if x in featurenames]
     source = featuresemantics.query('group == "deliverysource"')['featurename'].values.tolist()
     source = [x for x in source if x in featurenames]
     pharmacological = featuresemantics.query('group == "pharmacological"')['featurename'].values.tolist()
-    pharmacological = [x for x in pharmacological if x in featurenames]
+    pharmacological = [x for x in pharmacological if x in featurenames] + ["-"]
     outcome = featuresemantics.query('group == "outcome"')['featurename'].values.tolist()
     outcome = [x for x in outcome if x in featurenames]
 
@@ -80,6 +80,7 @@ def get_input_params():
         ],
         "interventions": [
         {"id": "intervention", "label": "Intervention", "type": "multiselect", "choices": intervention, "value": []},
+        {"id": "pharmacological", "label": "11.1 Pharmacological support", "type": "select", "choices": pharmacological, "value": "-"},
         {"id": "delivery", "label": "Delivery", "type": "multiselect", "choices": delivery, "value": []},
         {"id": "source", "label": "Source", "type": "multiselect", "choices": source, "value": []}
     ]}

@@ -97,6 +97,9 @@ class InputClass:
     def source(self):
         return self.values["source"]
 
+    def pharmacological(self):
+        return self.values["pharmacological"]
+
 
 # predicts for the given input in InputClass format
 def predict(input: InputClass):
@@ -136,9 +139,9 @@ def predict(input: InputClass):
         test[featurenames.index(x)] = True
     for x in input.source():
         test[featurenames.index(x)] = True
-    if '11.1 Pharmacological support' in input.intervention():
-        if input.pharmacological() is not None:
-            test[featurenames.index(input.pharmacological())] = True
+    if input.pharmacological() != "-":
+        test[featurenames.index(input.pharmacological())] = True
+        test[featurenames.index('11.1 Pharmacological support')] = True
 
     # run prediction
     extendednames = featurenames + ["not " + n for n in featurenames]
@@ -182,6 +185,7 @@ example_input = {
     "verification": 1,
     "outcome": "Abstinence: Continuous ",
     "intervention": [],
+    "pharmacological": "-",
     "delivery": [],
     "source": []
 }
@@ -189,5 +193,3 @@ example_input = {
 example_input_instance = InputClass(example_input)
 
 result = predict(example_input_instance)
-
-print(result)
