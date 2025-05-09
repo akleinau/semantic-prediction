@@ -209,7 +209,24 @@ def cleanup_rule(rule: list):
 
 
 def cleanup_rules(rules):
-    return list(map(cleanup_rule, rules))
+    # clean up individual rules
+    cleaned_rules = list(map(cleanup_rule, rules))
+
+    # join duplicate rules
+    unique_rules = []
+    unique_rule_strs = []
+    for rule in cleaned_rules:
+        rule_str = str(rule[0])
+        if rule_str not in unique_rule_strs:
+            unique_rules.append(rule)
+            unique_rule_strs.append(rule_str)
+        else:
+            # if the rule is already in the list, add the values together
+            index = unique_rule_strs.index(rule_str)
+            unique_rules[index][1] += rule[1]
+            unique_rules[index][2] += rule[2]
+
+    return unique_rules
 
 
 # predicts for the given input in InputClass format
@@ -263,6 +280,8 @@ def predict(input: InputClass):
     testrls = cleanup_rules(testrls)
     ctrlrls = cleanup_rules(ctrlrls)
 
+
+
     testimpacts = [a[1] for a in testrls]
     ctrlimpacts = [b[1] for b in ctrlrls]
     testonlyimpacts = [a[1] for a in testrls if a not in ctrlrls]
@@ -288,8 +307,7 @@ def predict(input: InputClass):
         if rulestr not in ctrlrulestrs:
             testrulestrs.append(rulestr)
 
-    return {"testrulestrs": testrulestrs, "ctrlrulestrs": ctrlrulestrs, "testfit": testfit, "ctrlfit": ctrlfit,
-            "testonlyimpacts": testonlyimpacts, "testrls": testrls, "ctrlrls": ctrlrls}
+    return {"testfit": testfit, "ctrlfit": ctrlfit, "testrls": testrls, "ctrlrls": ctrlrls}
 
 example_input = {
     "meanage": 20,
