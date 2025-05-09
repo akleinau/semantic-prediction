@@ -100,6 +100,117 @@ class InputClass:
     def pharmacological(self):
         return self.values["pharmacological"]
 
+# if two rules are the same, just the number is different, we want to remove one of them
+# eg ["A (<= 12 months), A (<= 15 months)"] -> ["A (<= 12 months)"]
+def cleanup_rule(rule: list):
+
+    if len(rule) == 1:
+        return rule
+
+    terms_separated = []
+    for term_tuple in rule[0]:
+        term = term_tuple[0]
+        elements = term.split(" (")
+        feature = elements[0]
+        unit = ""
+        if len(elements) > 1:
+            elements2 = elements[1].split(" ")
+            if len(elements2) > 1:
+                comparator = elements2[0]
+                value = elements2[1].split(")")[0]
+
+                if len(elements2) > 2:
+                    unit = elements2[2].split(")")[0]
+
+            else:
+                comparator = ""
+                value = elements[1].split(")")[0]
+
+        else:
+            value = ""
+            comparator = ""
+
+        terms_separated.append({"feature": feature, "comparator": comparator, "value": value, "unit": unit})
+
+    # join terms with same feature
+    cleaned_terms = []
+    cleaned_features = []
+    for term in terms_separated:
+        # when this is the first time the feature is seen, add it
+        if term["feature"] not in cleaned_features:
+            cleaned_terms.append(term)
+            cleaned_features.append(term["feature"])
+        # if the feature is seen before, join them
+        else:
+            # find the term in the cleaned_terms
+            feature_index = cleaned_features.index(term["feature"])
+            prev_term = cleaned_terms[feature_index]
+
+            # if both are <=, take the smaller one
+            if term["comparator"] == "<=" and prev_term["comparator"] == "<=":
+                if int(term["value"]) < int(prev_term["value"]):
+                    cleaned_terms[feature_index]["value"] = term["value"]
+
+            # if both are >=, take the larger one
+            elif term["comparator"] == ">=" and prev_term["comparator"] == ">=":
+                if int(term["value"]) > int(prev_term["value"]):
+                    cleaned_terms[feature_index]["value"] = term["value"]
+
+            # if one is <= and the other is >=, create new comparator -
+            elif term["comparator"] == "<=" and prev_term["comparator"] == ">=":
+                cleaned_terms[feature_index]["comparator"] = "-"
+                cleaned_terms[feature_index]["value_prev"] = prev_term["comparator"]
+                cleaned_terms[feature_index]["value"] = term["value"]
+            elif term["comparator"] == ">=" and prev_term["comparator"] == "<=":
+                cleaned_terms[feature_index]["comparator"] = "-"
+                cleaned_terms[feature_index]["value_prev"] = term["comparator"]
+                cleaned_terms[feature_index]["value"] = prev_term["value"]
+
+            # if one is <= and the other is -, restrict range
+            elif term["comparator"] == "<=" and prev_term["comparator"] == "-":
+                if int(term["value"]) < int(prev_term["value"]):
+                    cleaned_terms[feature_index]["value"] = term["value"]
+                else:
+                    cleaned_terms[feature_index]["value"] = prev_term["value"]
+            elif term["comparator"] == "-" and prev_term["comparator"] == "<=":
+                if int(term["value"]) > int(prev_term["value"]):
+                    cleaned_terms[feature_index]["value"] = term["value"]
+                else:
+                    cleaned_terms[feature_index]["value"] = prev_term["value"]
+
+            # if one is >= and the other is -, restrict range
+            elif term["comparator"] == ">=" and prev_term["comparator"] == "-":
+                if int(term["value"]) > int(prev_term["value"]):
+                    cleaned_terms[feature_index]["value"] = term["value"]
+                else:
+                    cleaned_terms[feature_index]["value"] = prev_term["value"]
+            elif term["comparator"] == "-" and prev_term["comparator"] == ">=":
+                if int(term["value"]) < int(prev_term["value"]):
+                    cleaned_terms[feature_index]["value"] = term["value"]
+                else:
+                    cleaned_terms[feature_index]["value"] = prev_term["value"]
+
+    # create the cleaned rules
+    cleaned_rule = []
+    for term in cleaned_terms:
+        if term["comparator"] == "":
+            if term["value"] == "":
+                cleaned_rule.append([term["feature"] + " " +term["unit"] , 1])
+            else:
+                cleaned_rule.append([term["feature"] + " (" + term["value"] + " " +term["unit"] + ")", 1])
+        elif term["comparator"] == "-":
+            cleaned_rule.append([term["feature"] + " (" + term["value_prev"] + term["comparator"] + term["value"] + " " + term["unit"] + ")", 1])
+        else:
+            cleaned_rule.append([term["feature"] + " (" + term["comparator"] + " " + term["value"] + " " + term["unit"] + ")" , 1])
+
+
+
+    return [cleaned_rule, rule[1], rule[2]]  # return the cleaned rule, the impact and the fit
+
+
+def cleanup_rules(rules):
+    return list(map(cleanup_rule, rules))
+
 
 # predicts for the given input in InputClass format
 def predict(input: InputClass):
@@ -147,6 +258,10 @@ def predict(input: InputClass):
     extendednames = featurenames + ["not " + n for n in featurenames]
     (testrls ,testfit) = apply_rules(model ,test ,extendednames)
     (ctrlrls ,ctrlfit) = apply_rules(model ,control ,extendednames)
+
+    # clean up rules
+    testrls = cleanup_rules(testrls)
+    ctrlrls = cleanup_rules(ctrlrls)
 
     testimpacts = [a[1] for a in testrls]
     ctrlimpacts = [b[1] for b in ctrlrls]
