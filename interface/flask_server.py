@@ -31,6 +31,11 @@ def predict_request():
     data = request.get_json()
     input = InputClass(data["input"])
     prediction = predict(input)
+
+    # restrict range of prediction to 0-100
+    prediction.testfit = np.clip(prediction.testfit, 0, 100)
+    prediction.ctrlfit = np.clip(prediction.ctrlfit, 0, 100)
+
     return prediction
 
 @app.route("/get_input_params")
