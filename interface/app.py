@@ -266,7 +266,7 @@ def server(input, output, session):
         ax4.set_yticks([])
 
         #plt.subplots_adjust(left=0.12, bottom=0.08, right=0.85, top=0.92, wspace=0.01, hspace=0.08)
-        f.tight_layout()
+        #f.tight_layout()
         return f
 
 
