@@ -1,0 +1,83 @@
+﻿featurename,group,label,explanation
+1.1.Goal setting (behavior),intervention,Goal setting (behavior),Set or agree on a goal defined in terms of the behaviour to be achieved.
+1.2 Problem solving,intervention,Problem solving,"Analyse, or prompt the person to analyse, factors influencing the behaviour and generate or select strategies that include overcoming barriers or increasing facilitators."
+1.4 Action planning,intervention,Action planning,Prompt detailed planning of performance of the behaviour.
+1.8 Behavioral contract,intervention,Behavioral contract,"Create a written specification of the behaviour to be performed, agreed on by the person, and witnessed by another."
+2.2 Feedback on behaviour,intervention,Feedback on behaviour,"Monitor and provide informative or evaluative feedback on performance of the behaviour."
+2.3 Self-monitoring of behavior,intervention,Self-monitoring of behavior,"Establish a method for the person to monitor and record their behaviour(s) as part of a behaviour change strategy."
+2.7 Feedback on outcome(s) of behavior,intervention,Feedback on outcome(s) of behavior,"Monitor and provide feedback on the outcome of performance of the behaviour."
+3.1 Social support (unspecified),intervention,Social support (unspecified),"Advise on, arrange or provide social support or non-contingent praise or reward for performance of the behaviour."
+3.2 Social support (practical),intervention,Social support (practical),"Advise on, arrange, or provide practical help for performance of the behaviour."
+4.1 Instruction on how to perform the behavior,intervention,Instruction on how to perform the behavior,Advise or agree on how to perform the behaviour.
+4.2 Information about Antecedents,intervention,Information about Antecedents,"Provide information about antecedents (e.g. social and environmental situations and events, emotions, cognitions) that reliably predict performance of the behaviour."
+4.5. Advise to change behavior,intervention,Advise to change behavior,"Advise, encourage or tell the person to change the behaviour."
+5.1 Information about health consequences,intervention,Information about health consequences,"Provide information (e.g. written, verbal, visual) about health consequences of performing the behaviour"
+5.3 Information about social and environmental consequences,intervention,Information about social and environmental consequences,"Provide information (e.g. written, verbal, visual) about social and environmental consequences of performing the behaviour."
+7.3 Reduce prompts/cues,intervention,Reduce prompts/cues,Withdraw gradually prompts to perform the behaviour
+8.2 Behavior substitution,intervention,Behavior substitution,"Prompt substitution of the unwanted behaviour with a wanted or neutral behaviour"
+9.1 Credible source,intervention,Credible source,"Present verbal or visual communication from a credible source in favour of or against the behaviour."
+9.2 Pros and cons,intervention,Pros and cons,"Advise the person to identify and compare reasons for wanting (pros) and not wanting to (cons) change the behaviour."
+11.1 Pharmacological support,intervention,Pharmacological support,"Provide, or encourage the use of or adherence to, drugs to facilitate behaviour change."
+11.2 Reduce negative emotions,intervention,Reduce negative emotions,"Advise on ways of reducing negative emotions to facilitate performance of the behaviour."
+12.3 Avoidance/reducing exposure to cues for the behavior,intervention,Avoidance/reducing exposure to cues for the behavior,"Advise on how to avoid exposure to specific social and contextual/physical cues for the behaviour, including changing daily or weekly routines."
+12.5 Adding objects to the environment,intervention,Adding objects to the environment,"Add objects to the environment in order to facilitate performance of the behaviour."
+12.6 Body changes,intervention,Body changes,"Alter body structure, functioning or support directly to facilitate behaviour change"
+13.2 Framing/reframing,intervention,Framing/reframing,"Suggest the deliberate adoption of a perspective or new perspective on behaviour (e.g. its purpose) in order to change cognitions or emotions about performing the behaviour."
+Motivational Interviewing,intervention,Motivational Interviewing,"A directive, client-centred counselling intervention package for eliciting behaviour change by helping clients to explore and resolve ambivalence."
+Abstinence: Continuous ,outcome,Abstinence: Continuous ,Abstinence was assessed from the target quit date or soon afterwards up to the follow-up point.
+Abstinence: Point Prevalence ,outcome,Abstinence: Point Prevalence ,Abstinence was assessed for the past week at the follow-up point.
+Biochemical verification,verification,Biochemical verification,"Test for nicotine, a nicotine metabolite, thiocyanate in urine, blood or saliva, or carbon monoxide in exhaled air to confirm abstinence at the follow-up point."
+aggregate patient role,patientrole,aggregate patient role,The smoker being a hospital or general practice patient (either inpatient or outpatient).
+control,study,control,
+Combined follow up (<= 1 month),followup,Combined follow up (<= 1 month),
+Combined follow up (<= 8 months),followup,Combined follow up (<= 8 months),
+Combined follow up (<= 15 month),followup,Combined follow up (<= 15 month),
+Combined follow up (<= 20 months),followup,Combined follow up (<= 20 months),
+Combined follow up (<= 28 months),followup,Combined follow up (<= 28 months),
+Combined follow up (Reported),followup,Combined follow up (Reported),
+Mean age (child),meanage,Mean age (child),The mean age for the study participants in a study arm.
+Mean age (adolecent),meanage,Mean age (adolecent),""
+Mean age (young adult),meanage,Mean age (young adult),""
+Mean age (adult),meanage,Mean age (adult),""
+Mean age (elderly),meanage,Mean age (elderly),""
+Mean number of times tobacco used (<= 5),meantobacco,Mean number of times tobacco used (<= 5),The mean number of cigarettes smoked daily prior to starting the intervention.
+Mean number of times tobacco used (<= 10),meantobacco,Mean number of times tobacco used (<= 10),""
+Mean number of times tobacco used (<= 15),meantobacco,Mean number of times tobacco used (<= 15),""
+Mean number of times tobacco used (<= 20),meantobacco,Mean number of times tobacco used (<= 20),""
+Mean number of times tobacco used (<= 25),meantobacco,Mean number of times tobacco used (<= 25),""
+Mean number of times tobacco used (Reported),meantobacco,Mean number of times tobacco used (Reported),""
+Proportion identifying as female gender (None),proportionfemale,Proportion identifying as female gender (None),Percentage of the study population who reported identifying as female gender
+Proportion identifying as female gender (<= 15),proportionfemale,Proportion identifying as female gender (<= 15),
+Proportion identifying as female gender (<= 35),proportionfemale,Proportion identifying as female gender (<= 35),
+Proportion identifying as female gender (<= 45),proportionfemale,Proportion identifying as female gender (<= 45),
+Proportion identifying as female gender (<= 60),proportionfemale,Proportion identifying as female gender (<= 60),
+Proportion identifying as female gender (<= 99),proportionfemale,Proportion identifying as female gender (<= 99),
+Proportion identifying as female gender (All),proportionfemale,Proportion identifying as female gender (All),
+Proportion identifying as male gender (None),proportionmale,Proportion identifying as male gender (None),Percentage of the study population who reported identifying as male gender
+Proportion identifying as male gender (<= 15),proportionmale,Proportion identifying as male gender (<= 15),
+Proportion identifying as male gender (<= 35),proportionmale,Proportion identifying as male gender (<= 35),
+Proportion identifying as male gender (<= 45),proportionmale,Proportion identifying as male gender (<= 45),
+Proportion identifying as male gender (<= 60),proportionmale,Proportion identifying as male gender (<= 60),
+Proportion identifying as male gender (<= 99),proportionmale,Proportion identifying as male gender (<= 99),
+Proportion identifying as male gender (All),proportionmale,Proportion identifying as male gender (All),
+Patch,pharmacological,Patch,"Ingestion mode of delivery that involves ingestion of a chemical through the skin. (Only applies to NRT)"
+Pill,pharmacological,Pill,"Alimentary mode of delivery that involves swallowing of a pill or oral capsule. (Only applies to bupropion, varenicline and placebo.)"
+gum,pharmacological,gum,"Ingestion mode of delivery that involves chewing of a soft material. (Only applies to NRT)"
+lozenge,pharmacological,lozenge,"Ingestion mode of delivery that involves absorption of a chemical through the lining of the buccal cavity. (Only applies to NRT)"
+nrt,pharmacological,nrt,"Nicotine Replacement Therapy (nicotine transdermal patch, nicotine chewing gum, nicotine lozenge, nicotine inhalator, e-cigarette)"
+bupropion,pharmacological,bupropion,"An atypical antidepressant found to aid smoking cessation, taken as a tablet."
+placebo,pharmacological,placebo,A tablet or device with no-pharmacologically active ingredient.
+varenicline,pharmacological,varenicline,"A nicotine receptor partial agonist found to aid smoking cessation, taken as a tablet."
+Printed material,deliverymode,Printed material,"Informational mode of delivery that involves use of printed material. (e.g. Leaflets, booklets and books.)"
+Somatic,deliverymode,Somatic,"Mode of delivery that involves devices or substances that alter bodily processes or structure."
+Website / Computer Program / App,deliverymode,Website / Computer Program / App,Forms of digital media involving computer programs.
+text messaging,deliverymode,text messaging,SMS text messaging support.
+Digital content type,deliverymode,Digital content type,"Any form of intervention delivery using digital media, including videos."
+Face to face,deliverymode,Face to face,"Human interactional mode of delivery that involves an intervention source and recipient being together in the same location and communicating directly."
+Group-based,deliverymode,Group-based,"Mode of delivery that involves three or more people in the location where the intervention is delivered."
+phone,deliverymode,phone,Support from a human practitioner over the telephone.
+Health Professional,deliverysource,Health Professional,"A practitioner in a healthcare role."
+doctor,deliverysource,doctor,A practitioner with a qualification as a doctor.
+nurse,deliverysource,nurse,A practitioner with a qualification as a nurse.
+psychologist,deliverysource,psychologist,"A practitioner with a degree-level or higher qualification in psychology."
+
