@@ -242,7 +242,7 @@ def server(input, output, session):
         plt.rc('font', size=7)
         for i, rulestr in enumerate(testrulestrs):
             if i+1 < NO_RULES/3:
-                plt.text(0,NO_RULES/3-(i+1),rulestr)
+                plt.text(0,NO_RULES/3-(i+1)*3,rulestr)
         ax2.set_xlabel('')
         ax2.set_xticks([])
         ax2.set_yticks([])
