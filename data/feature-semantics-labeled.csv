@@ -28,12 +28,12 @@ Abstinence: Continuous ,outcome,Abstinence: Continuous ,Abstinence was assessed 
 Abstinence: Point Prevalence ,outcome,Abstinence: Point Prevalence ,Abstinence was assessed for the past week at the follow-up point.
 Biochemical verification,verification,Biochemical verification,"Test for nicotine, a nicotine metabolite, thiocyanate in urine, blood or saliva, or carbon monoxide in exhaled air to confirm abstinence at the follow-up point."
 aggregate patient role,patientrole,aggregate patient role,The smoker being a hospital or general practice patient (either inpatient or outpatient).
-control,study,control,
-Combined follow up (<= 1 month),followup,Combined follow up (<= 1 month),
-Combined follow up (<= 8 months),followup,Combined follow up (<= 8 months),
-Combined follow up (<= 15 month),followup,Combined follow up (<= 15 month),
-Combined follow up (<= 20 months),followup,Combined follow up (<= 20 months),
-Combined follow up (<= 28 months),followup,Combined follow up (<= 28 months),
+control,study,control,""
+Combined follow up (<= 1 month),followup,Combined follow up (<= 1 month),""
+Combined follow up (<= 8 months),followup,Combined follow up (<= 8 months),""
+Combined follow up (<= 15 month),followup,Combined follow up (<= 15 month),""
+Combined follow up (<= 20 months),followup,Combined follow up (<= 20 months),""
+Combined follow up (<= 28 months),followup,Combined follow up (<= 28 months),""
 Combined follow up (Reported),followup,Combined follow up (Reported),
 Mean age (child),meanage,Mean age (child),The mean age for the study participants in a study arm.
 Mean age (adolecent),meanage,Mean age (adolecent),""
@@ -80,4 +80,3 @@ Health Professional,deliverysource,Health Professional,"A practitioner in a heal
 doctor,deliverysource,doctor,A practitioner with a qualification as a doctor.
 nurse,deliverysource,nurse,A practitioner with a qualification as a nurse.
 psychologist,deliverysource,psychologist,"A practitioner with a degree-level or higher qualification in psychology."
-

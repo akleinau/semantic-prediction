@@ -33,8 +33,8 @@ def predict_request():
     prediction = predict(input)
 
     # restrict range of prediction to 0-100
-    prediction.testfit = np.clip(prediction.testfit, 0, 100)
-    prediction.ctrlfit = np.clip(prediction.ctrlfit, 0, 100)
+    prediction["testfit"] = np.clip(prediction["testfit"], 0, 100)
+    prediction["ctrlfit"] = np.clip(prediction["ctrlfit"], 0, 100)
 
     return prediction
 
@@ -84,8 +84,8 @@ def get_input_params():
         {"id": "outcome", "label": "Outcome", "type": "select", "choices": outcome, "value": "Abstinence: Continuous "},
         ],
         "interventions": [
-        {"id": "intervention", "label": "Intervention", "type": "multiselect", "choices": intervention, "value": []},
-        {"id": "pharmacological", "label": "11.1 Pharmacological support", "type": "select", "choices": pharmacological, "value": "-"},
+        {"id": "intervention", "label": "Behavioral Change", "type": "multiselect", "choices": intervention, "value": []},
+        {"id": "pharmacological", "label": "Pharmacological support", "type": "select", "choices": pharmacological, "value": "-"},
         {"id": "delivery", "label": "Delivery", "type": "multiselect", "choices": delivery, "value": []},
         {"id": "source", "label": "Source", "type": "multiselect", "choices": source, "value": []}
     ]}
@@ -94,4 +94,17 @@ def get_input_params():
 def hello_world():
     return {"text":"Hello, World!"}
 
+@app.route("/get_labels")
+def get_labels():
+    label_csv = pd.read_csv('data/feature-semantics-labeled.csv')
+
+    # replace nulls with empty strings
+    label_csv = label_csv.fillna("")
+
+    label_list = label_csv.to_dict(orient='records')
+
+    # set the featurename as the key
+    labels = {row['featurename']: row for row in label_list}
+
+    return labels
 
