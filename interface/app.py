@@ -242,7 +242,7 @@ def server(input, output, session):
         plt.rc('font', size=7)
         for i, rulestr in enumerate(testrulestrs):
             if i+1 < NO_RULES/3:
-                plt.text(0,NO_RULES/3-(i+1),rulestr)
+                plt.text(0,NO_RULES/3-(i+1)*3,rulestr)
         ax2.set_xlabel('')
         ax2.set_xticks([])
         ax2.set_yticks([])
@@ -266,7 +266,7 @@ def server(input, output, session):
         ax4.set_yticks([])
 
         #plt.subplots_adjust(left=0.12, bottom=0.08, right=0.85, top=0.92, wspace=0.01, hspace=0.08)
-        f.tight_layout()
+        #f.tight_layout()
         return f
 
 
