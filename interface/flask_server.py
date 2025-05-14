@@ -75,19 +75,19 @@ def get_input_params():
 
 
     return {"params": [
-        {"id": "meanage", "label": "Mean Age", "type": "slider", "min": 15, "max": 80, "value": 50, "step": 1},
-        {"id": "proportionfemale", "label": "Proportion female", "type": "slider", "min": 0, "max": 100, "value": 50, "step": 1},
-        {"id": "meantobacco", "label": "Mean number of times tobacco used", "type": "slider", "min": 1, "max": 30, "value": 10, "step": 1},
-        {"id":"followup", "label": "Follow up (weeks)", "type": "slider", "min": 4, "max": 60, "value": 26, "step": 1},
-        {"id": "patientrole", "label": "Patient role?", "type": "checkbox", "value": 0},
+        {"id": "meanage", "label": "Mean age of smokers", "type": "slider", "min": 15, "max": 80, "value": 50, "step": 1},
+        {"id": "proportionfemale", "label": "Percentage who are female", "type": "slider", "min": 0, "max": 100, "value": 50, "step": 1},
+        {"id": "meantobacco", "label": "Mean number of cigarettes smoked", "type": "slider", "min": 1, "max": 30, "value": 10, "step": 1},
+        {"id":"followup", "label": "Follow-up point in weeks", "type": "slider", "min": 4, "max": 60, "value": 26, "step": 1},
+        {"id": "patientrole", "label": "Smokers are patients", "type": "checkbox", "value": 0},
         {"id": "verification", "label": "Biochemical verification", "type": "checkbox", "value": 0},
-        {"id": "outcome", "label": "Outcome", "type": "select", "choices": outcome, "value": "Abstinence: Continuous "},
+        {"id": "outcome", "label": "Type of outcome", "type": "select", "choices": outcome, "value": "Abstinence: Continuous "},
         ],
         "interventions": [
-        {"id": "intervention", "label": "Behavioral Change", "type": "multiselect", "choices": intervention, "value": []},
+        {"id": "intervention", "label": "Intervention content", "type": "multiselect", "choices": intervention, "value": []},
         {"id": "pharmacological", "label": "Pharmacological support", "type": "select", "choices": pharmacological, "value": "-"},
-        {"id": "delivery", "label": "Delivery", "type": "multiselect", "choices": delivery, "value": []},
-        {"id": "source", "label": "Source", "type": "multiselect", "choices": source, "value": []}
+        {"id": "delivery", "label": "Intervention mode of delivery", "type": "multiselect", "choices": delivery, "value": []},
+        {"id": "source", "label": "Intervention provider", "type": "multiselect", "choices": source, "value": []}
     ]}
 
 @app.route("/hello_world")
