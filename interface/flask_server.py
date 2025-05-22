@@ -58,7 +58,12 @@ def get_input_params():
     features = features[retainedfeatures]
 
     featurenames = [x[1] for x in features.columns]
-    featuresemantics = pd.read_csv('data/feature-semantics.csv')
+    featuresemantics = pd.read_csv('data/feature-semantics-labeled.csv')
+
+
+    # remove "somatic mode of delivery" aka "Somatic"
+    featurenames = [x for x in featurenames if x != "Somatic"]
+
 
     print("We have ", len(featurenames), " features.")
 
@@ -84,7 +89,7 @@ def get_input_params():
         {"id": "outcome", "label": "Type of outcome", "type": "select", "choices": outcome, "value": "Abstinence: Continuous "},
         ],
         "interventions": [
-        {"id": "intervention", "label": "Intervention content", "type": "multiselect", "choices": intervention, "value": []},
+        {"id": "intervention", "label": "Behavioral support", "type": "multiselect", "choices": intervention, "value": []},
         {"id": "pharmacological", "label": "Pharmacological support", "type": "select", "choices": pharmacological, "value": "-"},
         {"id": "delivery", "label": "Intervention mode of delivery", "type": "multiselect", "choices": delivery, "value": []},
         {"id": "source", "label": "Intervention provider", "type": "multiselect", "choices": source, "value": []}
